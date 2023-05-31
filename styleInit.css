@@ -1,0 +1,72 @@
+body {
+    background-image: url("https://cdn.alfabetajuega.com/alfabetajuega/abj_public_files/multimedia/imagenes/201611/170510.alfabetajuega-fondos-de-pantalla-videojuegos-4-181116.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.stickman {
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  width: 60px;
+  height: 60px;
+  animation: move 12s infinite;
+}
+.flag{
+    position: absolute;
+    top: 50%;
+    left: -7px;
+    width: 60px;
+    height: 60px;
+    margin-left: 30px;
+    animation: move 12s infinite;
+}
+.titulo{
+    font-size: 90px;
+}
+span {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(79, 79, 79);
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+  }
+
+.boton {
+    background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
+      padding: 10px;
+      border: none;
+      width: 150px;
+      height: 25px;
+      text-align: center;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    
+    .boton:hover{
+      background: rgba(251, 77, 2, 0.882);
+      box-shadow:
+       -7px -7px 20px 0px rgba(255,255,255,.9),
+       -4px -4px 5px 0px rgba(255,255,255,.9),
+       7px 7px 20px 0px rgba(0,0,0,.2),
+       4px 4px 5px 0px rgba(0,0,0,.3);
+    }
+    .boton:visited{
+        color: black;
+    }
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(105vw);
+  }
+}

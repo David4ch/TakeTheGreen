@@ -14,7 +14,7 @@ let contadorA = 0;
 let contadorN = 0;
 let p, p2, posicion, posicion2;
 let body = document.getElementsByTagName("body")[0];
-
+let button = document.getElementById("boton");
 body.addEventListener("load", CuentaAtras());
 var tiempo=3;
 /**Función que empieza al cargar la página, el tiempo son 3 segundos, cuando llegue a 0 ejecuta la función pintar consola la cual pinta el tablero y el contador lo oculta
@@ -112,6 +112,7 @@ function mover(event) {
                                     var div2 = document.getElementsByClassName("derecha")[0];
                                     div2.parentNode.removeChild(div2);
                                     contadorA++;
+                                    button.setAttribute("onclick", "resetear2()");
                                 } else if (posicion2 == document.getElementsByClassName(`card ${i - 1}f ${j}c jugador2`)[0]) {
                                     posicion.classList.add("jugador1");
                                     posicion2.classList.remove("jugador1");
@@ -147,6 +148,7 @@ function mover(event) {
                                 document.removeEventListener("keydown", mover);
                                 var div2 = document.getElementsByClassName("derecha")[0];
                                 div2.parentNode.removeChild(div2);
+                                button.setAttribute("onclick", "resetear2()");
                                 contadorA++;
                             } else if (posicion2.classList[3] == "jugador2") {
                                 posicion.classList.add("jugador1");
@@ -179,6 +181,7 @@ function mover(event) {
                                     var div2 = document.getElementsByClassName("derecha")[0];
                                     div2.parentNode.removeChild(div2);
                                     contadorA++;
+                                    button.setAttribute("onclick", "resetear2()");
                                 } else if (posicion2 == document.getElementsByClassName(`card ${i}f ${j - 1}c jugador2`)[0]) {
                                     posicion.classList.add("jugador1");
                                     posicion2.classList.remove("jugador1");
@@ -215,6 +218,7 @@ function mover(event) {
                                 var div2 = document.getElementsByClassName("derecha")[0];
                                 div2.parentNode.removeChild(div2);
                                 contadorA++;
+                                button.setAttribute("onclick", "resetear2()");
                             } else if (posicion2.classList[3] == "jugador2") {
                                 posicion.classList.add("jugador1");
                                 posicion2.classList.remove("jugador1");
@@ -245,6 +249,7 @@ function mover(event) {
                                     var div2 = document.getElementsByClassName("derecha")[0];
                                     div2.parentNode.removeChild(div2);
                                     contadorN++;
+                                    button.setAttribute("onclick", "resetear2()");
                                 } else if (posicion2 == document.getElementsByClassName(`card ${i - 1}f ${j}c jugador1`)[0]) {
                                     posicion.classList.add("jugador2");
                                     posicion2.classList.remove("jugador2");
@@ -276,6 +281,7 @@ function mover(event) {
                                     var div2 = document.getElementsByClassName("derecha")[0];
                                     div2.parentNode.removeChild(div2);
                                     contadorN++;
+                                    button.setAttribute("onclick", "resetear2()");
                                 } else if (posicion2 == document.getElementsByClassName(`card ${i}f ${j - 1}c jugador1`)[0]) {
                                     posicion.classList.add("jugador2");
                                     posicion2.classList.remove("jugador2");
@@ -312,6 +318,7 @@ function mover(event) {
                                 var div2 = document.getElementsByClassName("derecha")[0];
                                 div2.parentNode.removeChild(div2);
                                 contadorN++;
+                                button.setAttribute("onclick", "resetear2()");
                             } else if (posicion2.classList[3] == "jugador1") {
                                 posicion.classList.add("jugador2");
                                 posicion2.classList.remove("jugador2");
@@ -347,6 +354,7 @@ function mover(event) {
                                 var div2 = document.getElementsByClassName("derecha")[0];
                                 div2.parentNode.removeChild(div2);
                                 contadorN++;
+                                button.setAttribute("onclick", "resetear2()");
                             } else if (posicion2.classList[3] == "jugador1") {
                                 posicion.classList.add("jugador2");
                                 posicion2.classList.remove("jugador2");
