@@ -17,6 +17,9 @@ let body = document.getElementsByTagName("body")[0];
 
 body.addEventListener("load", CuentaAtras());
 var tiempo=3;
+/**Función que empieza al cargar la página, el tiempo son 3 segundos, cuando llegue a 0 ejecuta la función pintar consola la cual pinta el tablero y el contador lo oculta
+ * pongo el tiempo en -1 para q no de problemas y añado el event mover() y resetear()
+ */
 function CuentaAtras() {
 
     document.getElementById('cuentaatras').innerHTML = tiempo
@@ -37,6 +40,9 @@ function CuentaAtras() {
         }
     }
 }
+/**
+ * Crea un div contenedor que contiene todos los divs de una cuadricula de 13x13, pinta el jugador naranja y el azul y el cuadrado verde para llegar
+ */
 function pintarConsola() {
     let posicionObjetivo = [Math.floor(Math.random() * 13), Math.floor(Math.random() * 13)];
     let posicionInicio1 = [Math.floor(Math.random() * 13), Math.floor(Math.random() * 13)];
@@ -69,15 +75,18 @@ function pintarConsola() {
         }
     }
 }
-/**
- * Necesito cualquier evento de tecla para poder mover el color de la casilla
- *  - DONDE: El evento lo aplico sobre todo el documento HTML(uso document.)
- *  - EVENTO: El evento elegido es "keydown"
- *  -FUNCION EJECUTADA : La funcion elegida es 'mover'
- *  -REALACION EVENTO, FUNCION Y LUGAR : el metodo elegido es addEventListener()
- */
+
 /*
-    Recibe por parametro el objeto event que referencia a la clase KeyboarEvent.
+    Recibe por parametro el objeto event que referencia a la clase KeyboarEvent. Cuando hay que mover hacia arriba y a la izquierda lo hice de una forma
+    y cuando hay que moverse hacia abajo y a la derecha de otra forma
+    1a forma: Con un tercer for fui recorriendo cada div que se habia generado (13x13) los cuales estaban dentro de un contenedor en el array 'children'
+    hasta que encuentre el div que tenga la clase jugador1, cuando lo encuentre le quita la clase jugador1 y al div que está una fila/columna menos se lo añade.
+    2a forma: iba buscando uno a uno los divs, poniendoles la variable posicion, y como solo uno tiene la clase jugador1 los demás salen como undefined
+    entonces cuando no sea undefined cojo al div que está una fila/columna menos se lo añade
+
+    En ambas formas la forma de ganar es la misma, si el siguiente div tiene la clase objetivo, sale un alert que te dice que eres el ganador, suma al contador un uno
+    quita el event de mover() y eliminar por completo el div contenedor que tenia la cuadricula de 13x13
+
 */
 function mover(event) {
 
@@ -352,6 +361,13 @@ function mover(event) {
             break;
     }
 }
+/**
+ * 
+ * @param {*} event Funcion que recibe el evento keydown y es para que el botón funcione con la tecla Enter aparte de dandole click encima
+ * Cuando se activa, pone el tiempo a 3 para que vuelva al primer function, añade de nuevo el event mover previamente eliminado, vuelve a poner visible
+ * el section donde está la cuenta atrás, coge el texto del marcador y le pone el contenido del contador ganador y luego el if es para que cuando vaya ganando
+ * uno se ponga de su color.   
+ */
 function resetear(event) {
     if (event["key"] == "Enter") {
         tiempo=3;
@@ -376,7 +392,9 @@ function resetear(event) {
 
     }
 }
-
+/**
+ * Hace lo mismo que el function anterior pero este se activa al darle clic al botón, a diferencia del de arriba q se activa al darle a la tecla Enter
+ */
 function resetear2() {
     document.addEventListener("keydown", mover);
     document.getElementsByTagName("section")[0].style.visibility = "visible";
